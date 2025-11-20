@@ -1970,19 +1970,6 @@
 			end 
 
 			local objects = cfg.objects; do 
-				-- ensure required ESP preview color flags exist
-				if not flags["Name_Color"] then
-					flags["Name_Color"] = {
-						Color = rgb(191, 191, 214),
-						Transparency = 0,
-					}
-				end
-				if not flags["Box_Color"] then
-					flags["Box_Color"] = {
-						Color = rgb(255, 255, 255),
-						Transparency = 0,
-					}
-				end
 				objects[ "holder" ] = library:create( "Frame" , {
 					Parent = items.viewportframe;
 					Name = "\0";
@@ -4423,6 +4410,9 @@
 								cfg.set(cfg.active)
 							elseif cfg.mode == "hold" then 
 								cfg.set(true)
+							end
+							if cfg.name and KEYBIND_ELEMENT then
+								KEYBIND_ELEMENT.Visible = true
 							end
 						end
 					end
